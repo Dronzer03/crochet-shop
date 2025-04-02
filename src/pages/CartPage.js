@@ -1,13 +1,11 @@
 // src/pages/CartPage.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 import '../styles/Cart.css';
 
 const CartPage = () => {
-  // Sample cart data - in a real application, this would come from context/redux/localStorage
-  const [cartItems, setCartItems] = useState([
-  ]);
-  
+  const { cartItems, updateQuantity, removeItem, getCartTotals } = useContext(CartContext);
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
@@ -22,24 +20,8 @@ const CartPage = () => {
     return () => clearTimeout(timer);
   }, []);
   
-  const updateQuantity = (id, newQuantity) => {
-    if (newQuantity < 1) return;
-    
-    setCartItems(prevItems => 
-      prevItems.map(item => 
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
-  
-  const removeItem = (id) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
-  };
-  
-  // Calculate cart totals
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const shipping = subtotal > 50 ? 0 : 5.99;
-  const total = subtotal + shipping;
+  // Get cart totals from context
+  const { subtotal, shipping, total } = getCartTotals();
   
   return (
     <div className="cart-page">
@@ -68,7 +50,7 @@ const CartPage = () => {
                       <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
                       <div className="cart-item-details">
                         <h3>{item.name}</h3>
-                        <p>Category: {item.category.charAt(0).toUpperCase() + item.category.slice(1)}</p>
+                        <p>Category: {item.category?.charAt(0).toUpperCase() + item.category?.slice(1) || 'General'}</p>
                       </div>
                     </div>
                     

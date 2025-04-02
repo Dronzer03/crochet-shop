@@ -1,8 +1,23 @@
 // src/components/common/ProductCard.js
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext'; // We'll need to create this context
 
 const ProductCard = ({ product, isAnimated = false }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+  const { addToCart } = useContext(CartContext);
+  
+  const handleAddToCart = () => {
+    setIsAdding(true);
+    
+    // Add the product to cart
+    addToCart(product);
+    
+    // Reset button state after animation
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 1000);
+  };
   
   return (
     <div 
@@ -52,21 +67,6 @@ const ProductCard = ({ product, isAnimated = false }) => {
             transform: isHovered ? 'scale(1.1)' : 'scale(1)'
           }}
         />
-        
-        <div style={{
-          position: 'absolute',
-          bottom: isHovered ? '0' : '-50px',
-          left: '0',
-          right: '0',
-          backgroundColor: 'rgba(255, 107, 107, 0.8)',
-          color: 'white',
-          padding: '0.75rem',
-          textAlign: 'center',
-          transition: 'bottom 0.3s ease',
-          fontWeight: '600'
-        }}>
-          Add to Cart
-        </div>
       </div>
       
       <div style={{ padding: '1rem' }}>
@@ -111,7 +111,8 @@ const ProductCard = ({ product, isAnimated = false }) => {
         <div style={{
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginBottom: '1rem'
         }}>
           <span style={{
             fontWeight: 'bold',
@@ -128,6 +129,30 @@ const ProductCard = ({ product, isAnimated = false }) => {
             {product.stock > 10 ? 'In Stock' : `Only ${product.stock} left`}
           </span>
         </div>
+        
+        <button
+          onClick={handleAddToCart}
+          disabled={isAdding}
+          style={{
+            width: '100%',
+            backgroundColor: isAdding ? '#4CAF50' : '#ff6b6b',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            padding: '0.75rem',
+            fontSize: '0.9rem',
+            fontWeight: '600',
+            cursor: isAdding ? 'default' : 'pointer',
+            transition: 'background-color 0.3s ease',
+            textAlign: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseOver={(e) => !isAdding && (e.target.style.backgroundColor = '#ff5252')}
+          onMouseOut={(e) => !isAdding && (e.target.style.backgroundColor = '#ff6b6b')}
+        >
+          {isAdding ? 'Added!' : 'Add to Cart'}
+        </button>
       </div>
     </div>
   );

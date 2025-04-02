@@ -1,6 +1,7 @@
 // src/components/common/Navbar.js
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CartContext } from '../../contexts/CartContext';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
