@@ -119,7 +119,7 @@ const ProductCard = ({ product, isAnimated = false }) => {
             fontSize: '1.2rem',
             color: '#ff6b6b'
           }}>
-            ${product.price}
+            ₹{product.price}
           </span>
           
           <span style={{

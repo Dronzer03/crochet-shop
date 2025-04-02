@@ -1,5 +1,5 @@
 // src/components/common/Navbar.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 
@@ -7,6 +7,8 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { cartItems } = useContext(CartContext);
+    const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -147,7 +149,7 @@ const Navbar = () => {
                             fontSize: '0.75rem',
                             fontWeight: 'bold'
                         }}>
-                            0
+                            {cartItemCount}
                         </span>
                     </div>
                     </Link>

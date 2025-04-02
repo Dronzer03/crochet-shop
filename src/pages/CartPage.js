@@ -55,7 +55,7 @@ const CartPage = () => {
                     </div>
                     
                     <div className="cart-item-price">
-                      ${item.price.toFixed(2)}
+                        ₹{item.price.toFixed(2)}
                     </div>
                     
                     <div className="cart-item-quantity">
@@ -77,7 +77,7 @@ const CartPage = () => {
                     </div>
                     
                     <div className="cart-item-total">
-                      ${(item.price * item.quantity).toFixed(2)}
+                        ₹{(item.price * item.quantity).toFixed(2)}
                     </div>
                     
                     <div className="cart-item-actions">
@@ -94,17 +94,17 @@ const CartPage = () => {
                 
                 <div className="summary-row">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₹{subtotal.toFixed(2)}</span>
                 </div>
                 
                 <div className="summary-row">
                   <span>Shipping</span>
-                  <span>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? 'Free' : `₹${shipping.toFixed(2)}`}</span>
                 </div>
                 
                 {shipping > 0 && (
                   <div className="free-shipping-notice">
-                    <p>Add ${(50 - subtotal).toFixed(2)} more to get free shipping!</p>
+                    <p>Add ₹{(50 - subtotal).toFixed(2)} more to get free shipping!</p>
                     <div className="progress-bar">
                       <div className="progress" style={{ width: `${(subtotal / 50) * 100}%` }}></div>
                     </div>
@@ -113,7 +113,7 @@ const CartPage = () => {
                 
                 <div className="summary-row total">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>₹{total.toFixed(2)}</span>
                 </div>
                 
                 <button className="btn btn-primary checkout-btn">
