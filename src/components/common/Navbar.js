@@ -43,7 +43,7 @@ const Navbar = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center'
             }}>
-                <Link to="/" className="logo" style={{
+                <Link to="/home" className="logo" style={{
                     fontSize: '1.8rem',
                     fontWeight: 'bold',
                     color: '#ff6b6b'
