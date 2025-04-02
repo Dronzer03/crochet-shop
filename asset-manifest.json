@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/crochet-shop/home/static/css/main.6ac8459b.css",
-    "main.js": "/crochet-shop/home/static/js/main.93142736.js",
-    "index.html": "/crochet-shop/home/index.html",
-    "main.6ac8459b.css.map": "/crochet-shop/home/static/css/main.6ac8459b.css.map",
-    "main.93142736.js.map": "/crochet-shop/home/static/js/main.93142736.js.map"
+    "main.css": "/crochet-shop/static/css/main.6ac8459b.css",
+    "main.js": "/crochet-shop/static/js/main.93142736.js",
+    "index.html": "/crochet-shop/index.html",
+    "main.6ac8459b.css.map": "/crochet-shop/static/css/main.6ac8459b.css.map",
+    "main.93142736.js.map": "/crochet-shop/static/js/main.93142736.js.map"
   },
   "entrypoints": [
     "static/css/main.6ac8459b.css",
