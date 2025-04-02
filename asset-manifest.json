@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/story-of-hooks/static/css/main.6ac8459b.css",
+    "main.js": "/story-of-hooks/static/js/main.dee64084.js",
+    "index.html": "/story-of-hooks/index.html",
+    "main.6ac8459b.css.map": "/story-of-hooks/static/css/main.6ac8459b.css.map",
+    "main.dee64084.js.map": "/story-of-hooks/static/js/main.dee64084.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6ac8459b.css",
+    "static/js/main.dee64084.js"
+  ]
+}
