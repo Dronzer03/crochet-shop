@@ -81,7 +81,7 @@ const Navbar = () => {
                     }
                 }}>
                     <li className={location.pathname === '/' ? 'active' : ''}>
-                        <Link to="/" style={{
+                        <Link to="/home" style={{
                             fontWeight: location.pathname === '/' ? '600' : '400',
                             position: 'relative',
                             '&::after': location.pathname === '/' ? {

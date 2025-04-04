@@ -15,7 +15,8 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-          <Route path="/crochet-shop" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/crochet-shop" element={<HomePage />} />
             <Route path="/crochet-shop/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/search" element={<SearchPage />} />
